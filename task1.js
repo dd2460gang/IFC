@@ -74,16 +74,26 @@ function electronicWallet(moneyLeft, price){
 function trackAlice(){
     let p1 = [-10,0];
     let p2 = [10,0];
+    let p3 = [0,-10];
 
     let u = 20; // The distance between p1 & p2
     let r1 = calcDistance(alicePos,p1);
     let r2 = calcDistance(alicePos,p2);
+    let r3 = calcDistance(alicePos,p3);
 
-    let x = ((Math.pow(r1,2)-Math.pow(r2,2) )+ Math.pow(u,2)) / (2*u);
-    let y1 = Math.sqrt(Math.pow(r1,2)-Math.pow(x,2));
+    // let x = ((Math.pow(r1,2)-Math.pow(r2,2) )+ Math.pow(u,2)) / (2*u);
+    // let y1 = Math.sqrt(Math.pow(r1,2)-Math.pow(x,2));
+    let A = -2*p1[0] + 2*p2[0];
+    let B = -2*p1[1] + 2*p2[1];
+    let C = Math.pow(r1,2) - Math.pow(r2,2) - Math.pow(p1[0],2) + Math.pow(p2[0],2) - Math.pow(p1[1],2) + Math.pow(p2[1],2);
+    let D = -2*p2[0] + 2*p3[0];
+    let E = -2*p2[1] + 2*p3[1];
+    let F = Math.pow(r2,2) - Math.pow(r3,2) - Math.pow(p2[0],2) + Math.pow(p3[0],2) - Math.pow(p2[1],2) + Math.pow(p3[1],2);
+    x = (C*E - F*B)/(E*A - B*D);
+    y = (C*D - A*F)/(B*D-A*E);
     print(x);
     print(r1);
-    print(y1);
+    print(y);
 
 
 }
