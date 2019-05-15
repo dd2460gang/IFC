@@ -1,0 +1,273 @@
+1.
+l1=h1;
+l2=h2;
+l3=h3;
+l4=h4;
+l5=h5;
+l6=h6;
+Code: codfish
+
+2.
+if (h1) l1=true; else l1=false;
+if (h2) l2=true; else l2=false;
+if (h3) l3=true; else l3=false;
+if (h4) l4=true; else l4=false;
+if (h5) l5=true; else l5=false;
+if (h6) l6=true; else l6=false;
+Code: reckoning
+
+3.
+while (!h1) skip;
+l1 = true;
+while (h2) skip;
+l2 = false;
+while (!h3) skip;
+l3 = true;
+while (h4) skip;
+l4 = false;
+while (!h5) skip;
+l5 = true;
+while (!h6) skip;
+l6 = true;
+Code: adjunct
+
+4.
+if (h6) skip; else {skip;skip;}
+l1 = true;
+l2 = false;
+l3 = true;
+l4 = false;
+l5 = false;
+l6 = true;
+Code: joystick
+
+5.
+l1 = declassify(h1);
+h1 = h2;
+l2 = declassify(h1);
+h1 = h3;
+l3 = declassify(h1);
+h1 = h4;
+l4 = declassify(h1);
+h1 = h5;
+l5 = declassify(h1);
+h1 = h6;
+l6 = declassify(h1);
+Code: allergy
+
+6.
+l1=true;try {if (h1) throw; else skip;l1=false;} catch {skip;}
+l2=true;try {if (h2) throw; else skip;l2=false;} catch {skip;}
+l3=true;try {if (h3) throw; else skip;l3=false;} catch {skip;}
+l4=true;try {if (h4) throw; else skip;l4=false;} catch {skip;}
+l5=true;try {if (h5) throw; else skip;l5=false;} catch {skip;}
+l6=true;try {if (h6) throw; else skip;l6=false;} catch {skip;}
+Code: graphite
+
+7.
+let (a = h1) in l1 = a;
+let (a = h2) in l2 = a;
+let (a = h3) in l3 = a;
+let (a = h4) in l4 = a;
+let (a = h5) in l5 = a;
+let (a = h6) in l6 = a;
+Code: collect
+
+8.
+declare proc p(in x : high, out y : high) y=x;
+p(h1, l1);
+p(h2, l2);
+p(h3, l3);
+p(h4, l4);
+p(h5, l5);
+p(h6, l6);
+Code: thousand
+
+9.
+declare ref h7 : low;
+ref h7 = h1;
+l1 = deref(h7);
+ref h7 = h2;
+l2 = deref(h7);
+ref h7 = h3;
+l3 = deref(h7);
+ref h7 = h3;
+l3 = deref(h7);
+ref h7 = h4;
+l4 = deref(h7);
+ref h7 = h5;
+l5 = deref(h7);
+ref h7 = h6;
+l6 = deref(h7);
+Code: hospital
+
+10.
+declare array x : low;
+x[true]=false;
+x[false]=false;
+x[h1] = true;
+l1 = x[true];
+x[true]=false;
+x[false]=false;
+x[h2] = true;
+l2 = x[true];
+x[true]=false;
+x[false]=false;
+x[h3] = true;
+l3 = x[true];
+x[true]=false;
+x[false]=false;
+x[h4] = true;
+l4 = x[true];
+x[true]=false;
+x[false]=false;
+x[h5] = true;
+l5 = x[true];
+x[true]=false;
+x[false]=false;
+x[h6] = true;
+l6 = x[true];
+Code: success
+
+
+Success!!
+
+Congratulations, you have finished the challenge. Below are listings of your last submitted programs.
+Program 1
+
+l1=h1;
+l2=h2;
+l3=h3;
+l4=h4;
+l5=h5;
+l6=h6;
+
+Program 2
+
+if (h1) l1=true; else l1=false;
+if (h2) l2=true; else l2=false;
+if (h3) l3=true; else l3=false;
+if (h4) l4=true; else l4=false;
+if (h5) l5=true; else l5=false;
+if (h6) l6=true; else l6=false;
+
+Program 3
+
+while (!h1) skip;
+l1 = true;
+while (h2) skip;
+l2 = false;
+while (!h3) skip;
+l3 = true;
+while (h4) skip;
+l4 = false;
+while (!h5) skip;
+l5 = true;
+while (!h6) skip;
+l6 = true;
+
+Program 4
+
+if (h6) skip; else {skip;skip;}
+l1 = true;
+l2 = false;
+l3 = true;
+l4 = false;
+l5 = false;
+l6 = true;
+
+Program 5
+
+l1 = declassify(h1);
+h1 = h2;
+l2 = declassify(h1);
+h1 = h3;
+l3 = declassify(h1);
+h1=h4;
+l4=declassify(h1);
+h1=h5;
+l5=declassify(h1);
+h1=h6;
+l6=declassify(h1);
+
+Program 6
+
+l1=true;try {if (h1) throw; else skip;l1=false;} catch {skip;}
+l2=true;try {if (h2) throw; else skip;l2=false;} catch {skip;}
+l3=true;try {if (h3) throw; else skip;l3=false;} catch {skip;}
+l4=true;try {if (h4) throw; else skip;l4=false;} catch {skip;}
+l5=true;try {if (h5) throw; else skip;l5=false;} catch {skip;}
+l6=true;try {if (h6) throw; else skip;l6=false;} catch {skip;}
+
+
+
+
+
+Program 7
+
+let (a = h1) in l1 = a;
+let (a = h2) in l2 = a;
+let (a = h3) in l3 = a;
+let (a = h4) in l4 = a;
+let (a = h5) in l5 = a;
+let (a = h6) in l6 = a;
+
+Program 8
+
+declare proc p(in x : high, out y : high) y=x;
+p(h1, l1);
+p(h2, l2);
+p(h3, l3);
+p(h4, l4);
+p(h5, l5);
+p(h6, l6);
+
+Program 9
+
+declare ref h7 : low;
+ref h7 = h1;
+l1 = deref(h7);
+ref h7 = h2;
+l2 = deref(h7);
+ref h7 = h3;
+l3 = deref(h7);
+ref h7 = h3;
+l3 = deref(h7);
+ref h7 = h4;
+l4 = deref(h7);
+ref h7 = h5;
+l5 = deref(h7);
+ref h7 = h6;
+l6 = deref(h7);
+
+Program 10
+
+declare array x : low;
+x[true]=false;
+x[false]=false;
+x[h1] = true;
+l1 = x[true];
+x[true]=false;
+x[false]=false;
+x[h2] = true;
+l2 = x[true];
+x[true]=false;
+x[false]=false;
+x[h3] = true;
+l3 = x[true];
+x[true]=false;
+x[false]=false;
+x[h4] = true;
+l4 = x[true];
+x[true]=false;
+x[false]=false;
+x[h5] = true;
+l5 = x[true];
+x[true]=false;
+x[false]=false;
+x[h6] = true;
+l6 = x[true];
+
+© Andrei Sabelfeld, Arnar Birgisson and Alexander Sjösten
+
+
