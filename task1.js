@@ -30,7 +30,8 @@ restaurants[0].avgPrice = 5;
 restaurants[0].locX = 0;
 restaurants[0].locY = 0;
 
-var alicePos = lbl([0,1]);
+//var alicePos = lbl([0,1]);
+var alicePos = [3,6];
 var bobPos = lbl([0,0]);
 
 var aliceCash = lbl(10000000);
@@ -41,12 +42,12 @@ var threshold = 100;
 
 // Find the nearest for all guys
 function chooseRestaurant(persons, restaurants, threshold){
-    var shortest = [100000000,""];
-    for (var i in restaurants) {
-        var r = restaurants[i];
+    let shortest = [100000000,""];
+    for (let i in restaurants) {
+        let r = restaurants[i];
         if(r.avgPrice >= threshold) {
             let distance = lbl(0);
-            for(var j in persons) {
+            for(let j in persons) {
                 distance += calcDistance(persons[j], [r.locX, r.locY]);
             }
             let declDistance = declassify(distance)
@@ -63,8 +64,18 @@ function calcDistance(person,r){
     return declassify(distance);
 }
 
+function findRestaurantFromPerson(charlie,dist){
+    print("task3: " + dist);
+    for(let i in restaurants){
+        let r = restaurants[i];
+        if(calcDistance(charlie,[r.locX,r.locY]) == dist) return r.name;
+    }
+    return "No restaurant found";
+}
+
 function electronicWallet(moneyLeft, price){
-  if(declassify(moneyLeft)>price){
+  var canAffordOrNot = moneyLeft>price
+  if(declassify(canAffordOrNot)){
     moneyLeft = moneyLeft-price;
   }else{
     lprint("Error: insufficient funds");
@@ -91,9 +102,9 @@ function trackAlice(){
     let F = Math.pow(r2,2) - Math.pow(r3,2) - Math.pow(p2[0],2) + Math.pow(p3[0],2) - Math.pow(p2[1],2) + Math.pow(p3[1],2);
     x = (C*E - F*B)/(E*A - B*D);
     y = (C*D - A*F)/(B*D-A*E);
-    print(x);
-    print(r1);
-    print(y);
+    lprint(x);
+    lprint(r1);
+    lprint(y);
 
 
 }
@@ -101,7 +112,7 @@ function trackAlice(){
 let res = chooseRestaurant([alicePos,bobPos],restaurants,threshold);
 lprint(res);
 let resCharlie = calcDistance(charliePos, alicePos);
-lprint("Distance Charlie-Alice: " + resCharlie);
+lprint("Distance Charlie-Alice: " + resCharlie + " restaurant is : " + findRestaurantFromPerson(charliePos,resCharlie));
 lprint("Alice payed: ");
 lprint("Average price was: " + res[1].avgPrice);
 electronicWallet(aliceCash, res[1].avgPrice);
