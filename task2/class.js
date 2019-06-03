@@ -49,7 +49,6 @@ Timeline.prototype = {
   editJob: function(id){
     var txt = "not found";
     for(var i in this.jobs){
-      	lprint(id + "    " + i);
 	let jobFound = this.jobs[i].id == id; // <<< HERE
 	if(declassify(jobFound)) { // <<< HERE
         txt = JSON.stringify(new LightJob(this.jobs[i]),null,2);
