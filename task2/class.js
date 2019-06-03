@@ -34,20 +34,24 @@ Timeline.prototype = {
   getPos: function(year,y2,y3){
     return this.lmargin+((this.width-this.lmargin-this.rmargin)/(y3-y2)*(year-y2));
   },
+
   removeJob: function(id){
     for(var i in this.jobs){
-      if(this.jobs[i].id ==id) this.jobs.splice(i,1);
+	let sameId = (id == this.jobs[i].id); // <<< HERE
+      if(declassify(sameId)) this.jobs.splice(i,1); // <<< HERE
     }
   },
+
   between: function(n,x1,x2){
     return Math.min(Math.max(n,x1),x2);
   },
 
-
   editJob: function(id){
     var txt = "not found";
     for(var i in this.jobs){
-      if(this.jobs[i].id ==id) {
+      	lprint(id + "    " + i);
+	let jobFound = this.jobs[i].id == id; // <<< HERE
+	if(declassify(jobFound)) { // <<< HERE
         txt = JSON.stringify(new LightJob(this.jobs[i]),null,2);
       }
     }
@@ -268,3 +272,37 @@ Job.prototype = {
     return Math.min(this.getLayerSign(),0);
   }
 }
+
+let canvas = {
+	height: 100,
+	width: 100, 
+	getContext: function(a) {}
+};
+let input = {
+	start: 0,
+	end: 0,
+	title: "a",
+	text: "b",
+	color: "c",
+	layer: 0,
+	textPosition: 0,
+	showYears: 0
+};
+let document = {
+	getElementById: function(a){ return {value:10}; }
+}
+
+
+let t = new Timeline(canvas);
+let id = 0;  
+t.jobs.push(lbl(new Job(1,input)));
+t.jobs.push(lbl(new Job(2,input)));
+t.jobs.push(lbl(new Job(3,input)));
+
+lprint(t.jobs);  
+
+
+t.removeJob(0);
+t.editJob(0); 
+
+lprint(t.jobs);  
