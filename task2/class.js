@@ -36,8 +36,7 @@ Timeline.prototype = {
   },
   removeJob: function(id){
     for(var i in this.jobs){
-	let sameId = id == this.jobs[i].id; // <<< HERE
-      if(declassify(sameId)) this.jobs.splice(i,1); // <<< HERE
+      if(this.jobs[i].id ==id) this.jobs.splice(i,1);
     }
   },
   between: function(n,x1,x2){
@@ -48,8 +47,7 @@ Timeline.prototype = {
   editJob: function(id){
     var txt = "not found";
     for(var i in this.jobs){
-      	let jobFound = this.jobs[i].id == id; // <<< HERE
-	if(declassify(jobFound)) { // <<< HERE
+      if(this.jobs[i].id ==id) {
         txt = JSON.stringify(new LightJob(this.jobs[i]),null,2);
       }
     }
@@ -66,10 +64,10 @@ Timeline.prototype = {
     this.ctx.textBaseline="middle";
 
     // corrections
-    if(y3!=-1&amp;&amp;y3&lt;y2)return;
-    if(y3&gt;2999) return;
-    if(y2&lt;1900) return;
-    if(y2&gt;2999) return;
+    if(y3!=-1&&y3<y2)return;
+    if(y3>2999) return;
+    if(y2<1900) return;
+    if(y2>2999) return;
     if(document.getElementById("today").checked) y3 = this.date.getFullYear()+((this.date.getMonth()+1)/13);
 
 
@@ -132,20 +130,20 @@ Timeline.prototype = {
     //this.ctx.fillText(Math.floor(y3),this.getPos(Math.floor(y3),y2,y3),this.height/2+25);
 
     var x;
-    for(var i = y2;i &lt;y3;i++){
+    for(var i = y2;i <y3;i++){
       x = this.getPos(i,y2,y3);
       length = 5;
       if(i%5==0) {
         if(i!=y2) this.ctx.fillText(i,x,this.height/2+25);
         length = 12;
       }
-      if(document.getElementById("allyears").checked &amp;&amp; i%5!=0 &amp;&amp; i!=y2 &amp;&amp;i!=y3) this.ctx.fillText(i,x,this.height/2+20);
+      if(document.getElementById("allyears").checked && i%5!=0 && i!=y2 &&i!=y3) this.ctx.fillText(i,x,this.height/2+20);
       this.ctx.moveTo(x,this.height/2-length);
       this.ctx.lineTo(x,this.height/2+length);
       this.ctx.stroke();
     }
 
-    // render occupations &amp; Interface
+    // render occupations & Interface
     this.ctx.lineWidth=2;
     document.getElementById("jobs").innerHTML ="";
     for(var job of this.jobs){
@@ -164,7 +162,7 @@ Timeline.prototype = {
       remove.onclick=this.removeJob.bind(this,job.id);
       edit.onclick=this.editJob.bind(this,job.id);
 
-      text.innerHTML+= "&lt;text style=\"color:"+job.color+"\"&gt;&amp;ensp; o&amp;ensp; &lt;/text&gt;"+(job.title.length==0 ? " - " : job.title);
+      text.innerHTML+= "<text style=\"color:"+job.color+"\">&ensp; o&ensp; </text>"+(job.title.length==0 ? " - " : job.title);
 
       buttons.appendChild(remove);
       buttons.appendChild(edit);
@@ -216,7 +214,7 @@ Timeline.prototype = {
 
       //years
       this.ctx.font="11px Georgia";
-      if(typeof job.showYears === "boolean" &amp;&amp; job.showYears){
+      if(typeof job.showYears === "boolean" && job.showYears){
         var str1 = job.start+"";
         var str2 = job.end+"";
         if(str2=="false") str2="";
